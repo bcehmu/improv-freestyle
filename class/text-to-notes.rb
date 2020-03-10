@@ -4,7 +4,7 @@ class TextToNotes
     # note's duration : [1,1/2,1/4,1/8,1/16],[1/3,1/6,1/12]. scheme1: use four keys to adjust, even/triplet and faster/slower, scheme2: assign each option of duration a key.
     # octave adjustment needs two keys 
     def initialize()
-        @rest = ["n"] # maps to rest
+        @rest = ["-"] # maps to rest
         @effective = [ # a complex scheme
                     'q', 'w', 'e', 'r', 
                     'a', 's', 'd', 'f',
@@ -12,14 +12,14 @@ class TextToNotes
                     'y', 'u', 'i', 'o',
                     'h', 'j', 'k', 'l',
                     '6', '7', '8', '9',
-                    'n'
+                    '-'
         ]
 
         @effective_simple = [ # a simple scheme
             's', 'd', 'f', # reserve 3 keys for simple map to 3 sample, very simple :)
             'y', 'u', 'i', 'o', 'p', # duration of even, 1, 1/2, 1/4, 1/8, 1/16
             'h', 'j', 'k', # duration of triplets, 1/3, 1/6
-            'n' # rest
+            '-' # rest
         ]
 
 
@@ -49,7 +49,7 @@ class TextToNotes
             'c' => "a#",
             'v' => "b",
             # the rest
-            'n' => "rest",
+            'n' => "-",
             # to be defined
             'i' => "rest",
             'o' => "rest",
@@ -66,7 +66,7 @@ class TextToNotes
             'd' => "sample_2",
             'f' => "sample_3",
             # the rest
-            'n' => "rest",
+            '-' => "rest",
             # duration
             'y' => "1",
             'u' => "1/2",
@@ -113,17 +113,17 @@ class TextToNotes
     end
 
         
-    end
+end
 
 
 
-    # test below
+# # test below
 
-    str = "qwerasdf asdf zxcv 6789 yuio hjkl nm0 6789m"
-    test_class = TextToNotes.new
-    t = test_class.string_to_effective(str)
-    p t
-    s = test_class.effective_map(t)
-    p s
+# str = "qwe-rasdf asdf-- zxcv- 6789 yuio hjkl nm0 6789m"
+# test_class = TextToNotes.new
+# t = test_class.string_to_effective(str)
+# p t
+# s = test_class.effective_map(t)
+# p s
     
 

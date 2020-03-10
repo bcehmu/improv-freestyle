@@ -3,9 +3,10 @@ include WaveFile
 
 class SamplesOP # This is the class for manipulating samples of wave buffer.
     
-    attr_accessor :sample_format
+    attr_accessor :sample_format, :sample_frequency
     def initialize
         @sample_format = Format.new(:stereo, :pcm_16, 44100)
+        @sample_frequency = 44100
     end
 
     def array_buffers_join_to_sample(arr)
@@ -48,5 +49,28 @@ class SamplesOP # This is the class for manipulating samples of wave buffer.
             result[i] = result[i] / amp
         end
     end
+
+    def sample_slice(sample, len)
+        unless len.is_a?(Integer)
+            raise "length to slice should be integer"
+        end
+
+        result = []
+        if len <= sample.length and len >= 0 # subarray sample[0...len]
+            result = sample[0...len]
+            return result
+        elsif len >=0 # if greater than sample.length, pad with [0,0]
+            result = sample.dup
+            for i in (sample.length)...len
+                result.push([0,0])
+            end
+            return result
+        else
+            raise "length to slice should be an integer not less than 0"
+        end
+    end
+
+
+    
 
 end
