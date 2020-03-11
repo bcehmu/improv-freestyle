@@ -19,6 +19,24 @@ module InstructionsToTrack
         "audio-samples/sample3.wav"
     ]
 
+    default_samples_drum = [ # if pwd is the main folder
+        "audio-samples/lib-drum/sample1.wav",
+        "audio-samples/lib-drum/sample2.wav",
+        "audio-samples/lib-drum/sample3.wav"
+    ]
+
+    default_samples_bass = [
+        "audio-samples/lib-bass/sample1.wav",
+        "audio-samples/lib-bass/sample2.wav",
+        "audio-samples/lib-bass/sample3.wav"
+    ]
+
+    default_samples_melodic = [
+        "audio-samples/lib-melodic/sample1.wav",
+        "audio-samples/lib-melodic/sample2.wav",
+        "audio-samples/lib-melodic/sample3.wav"
+    ]
+
     
 
 
@@ -143,7 +161,7 @@ module InstructionsToTrack
           writer.write(buffer)
         end
 
-        return export
+        return export # return the array of amplitudes
 
     end
 

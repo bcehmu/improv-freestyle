@@ -32,22 +32,28 @@ class SamplesOP # This is the class for manipulating samples of wave buffer.
         return samples
     end
 
-    def samples_add_from_array(array_samples, amp = 1, len = 441) # add amplitudes of samples from array_samples
+    def samples_add_from_array(array_samples, amp = 1, len = 44100 * 10) # add amplitudes of samples from array_samples
         result = []
-        max_len = 0
+        max_len = len
+        # check_sum = 0
         array_samples.each do |sample| # update max_len
             max_len = sample.length > max_len ? sample.length : max_len
         end
         max_len = max_len > len ? len : max_len
         for i in 0...max_len
-            result.push(0)
+            result.push([0,0])
             array_samples.each do |sample|
-                unless sample[i] != nil
-                    result[i] += sample[i]
+                unless sample[i] == nil
+                    result[i][0] += sample[i][0]
+                    result[i][1] += sample[i][1]
+                    # check_sum += result[i][0] + result[i][1]
                 end
             end
-            result[i] = result[i] / amp
+            result[i][0] = result[i][0] / amp
+            result[i][1] = result[i][1] / amp
         end
+        # p check_sum
+        return result
     end
 
     def sample_slice(sample, len)
