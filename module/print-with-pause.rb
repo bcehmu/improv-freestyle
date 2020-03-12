@@ -1,4 +1,4 @@
-def print_with_pause(str, sleep_time = 0.03)
+def print_with_pause(str, sleep_time = 0.08)
     chars = str.chars
     chars.each do |c|
       print c # it works with colorize

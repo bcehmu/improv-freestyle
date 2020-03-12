@@ -32,7 +32,7 @@ class SamplesOP # This is the class for manipulating samples of wave buffer.
         return samples
     end
 
-    def samples_add_from_array(array_samples, amp = 1, len = 44100 * 10) # add amplitudes of samples from array_samples
+    def samples_add_from_array(array_samples, amp = 1, len = 44100 * 300) # add amplitudes of samples from array_samples
         result = []
         max_len = len
         # check_sum = 0

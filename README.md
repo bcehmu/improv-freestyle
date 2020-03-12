@@ -42,15 +42,92 @@ Other key doesn't make change to the instructions. For readabilty, for example, 
 
 User navigates by menu to the option interested.
 
+## Tutorial included
+
+Choose Tutorial anytime in the main menu for definition of key-mapping.
+
 ## Compose with Text at will
 
-In the 'Improvise' session, type freely until Exit-Key '1' included. No key is wrong, only effective keys to be mapped to instructions are
+In the 'Improvise' session, type freely until Exit-Key ']' included. No key is wrong, only effective keys to be mapped to instructions are
 interpretted.
+
+## Use command-line option to directly Generate a Track
+
+If you want to generate a track without entering the menu, append first argument 1|2|3 as the sample library to use, second argument as the tempo in bpm, third argument is the text to be interpreted to a wave file. For example, command below generate a drum track at 100 bpm.
+```bash
+ruby main.rb 1 100 s-ssd-ddf-ff
+```
 
 # System Requirements
 
-* This version is designed for MacOS system, using afplay media-player to play wave files.
-* Writen in Ruby 2.7.0, using gems wavefile, colorize, tty-font, tty-prompt and their dependency.
+* This version is designed for MacOS system, using afplay media-player to play wave files. Audio hardware should work to play sound.
+
+* Tested in Ruby 2.7.0, using gems wavefile, colorize, tty-font, tty-prompt and their dependency. To avoid confliction of MacOS's internal Ruby code, you need Homebrew and rbenv to setup updated Ruby enviroment.
+
+# Installation
+
+
+## System Requirements:
+1. MacOS with terminal and afplay media player.
+2. Working audio hardware to play sound.
+
+## Install Homebrew:
+Run the commands below in terminal:
+
+
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+brew analytics off
+
+brew update
+
+brew tap caskroom/cask
+```
+## Install rbenv:
+
+Run the commands below in terminal:
+```bash
+brew install rbenv
+rbenv
+```
+Close terminal for changes to take effect.
+
+## Install Ruby:
+Run the commands below in terminal:
+```bash
+rbenv install 2.7.0
+```
+
+## Install dependency of this program (gems):
+Run the commands below in terminal:
+```bash
+gem install colorize
+gem install tty-font
+gem install tty-prompt
+gem install wavefile
+```
+
+## Download source code from github:
+<a href="https://github.com/bcehmu/improv-freestyle/archive/master.zip">Source Code : improv-freestyle</a>
+
+Extract to a loal folder where you enter for running the program. 
+Run the command below in terminal after entering the folder:
+```bash
+ruby main.rb
+```
+
+## To customize samples, replace any wav files in the folders below:
+\audio-samples\lib-drum\
+
+\audio-samples\lib-drum\
+
+\audio-samples\lib-melodic\
+
+* files should be named sample1.wav or sample2.wav or sample3.wav
+* files should be of format wav, (44100HZ, PCM 16 bits, stereo)
+
+
 
 # Source Repository
 

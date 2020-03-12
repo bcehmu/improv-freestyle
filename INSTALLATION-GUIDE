@@ -1,0 +1,42 @@
+# Installation Guide
+# System Requirements:
+# 1. MacOS with terminal and afplay media player
+# 2. Working audio hardware to play sound
+
+# Install Homebrew:
+# Run the commands below in terminal
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew analytics off
+brew update
+brew tap caskroom/cask
+
+# Install rbenv:
+# Run the commands below in terminal
+brew install rbenv
+rbenv
+# Close terminal for changes to take effect
+
+# Install Ruby:
+# Run the commands below in terminal
+rbenv install 2.7.0
+
+# Install dependency of this program (gems):
+# Run the commands below in terminal
+gem install colorize
+gem install tty-font
+gem install tty-prompt
+gem install wavefile
+
+# Download source code from github:
+# https://github.com/bcehmu/improv-freestyle/archive/master.zip
+# Extract to a loal folder where you enter for running the program
+# Run the commands below in terminal after entering the folder
+ruby main.rb
+
+# To customize samples, replace any wav files in the folders below:
+# \audio-samples\lib-drum\
+# \audio-samples\lib-drum\
+# \audio-samples\lib-melodic\
+# files should be named sample1.wav or sample2.wav or sample3.wav
+# files should be of format wav, (44100HZ, PCM 16 bits, stereo)
+

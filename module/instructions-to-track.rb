@@ -7,17 +7,6 @@ require_relative "../class/text-to-notes"
 
 module InstructionsToTrack
 # this contains tools accepting a sequence of instructions to track buffer, save the track as wav file
-    default_samples_r1 = [ # if pwd is the module folder
-        "../audio-samples/sample1.wav",
-        "../audio-samples/sample2.wav",
-        "../audio-samples/sample3.wav"
-    ]
-
-    default_samples_r2 = [ # if pwd is the main folder
-        "audio-samples/sample1.wav",
-        "audio-samples/sample2.wav",
-        "audio-samples/sample3.wav"
-    ]
 
     default_samples_drum = [ # if pwd is the main folder
         "audio-samples/lib-drum/sample1.wav",
@@ -62,9 +51,9 @@ module InstructionsToTrack
         default_samples_file = []
         if samples_file == nil
             default_samples_file = [
-                "audio-samples/sample1.wav",
-                "audio-samples/sample2.wav",
-                "audio-samples/sample3.wav"
+                "audio-samples/lib-drum/sample1.wav",
+                "audio-samples/lib-drum/sample2.wav",
+                "audio-samples/lib-drum/sample3.wav"
             ]
         else
             default_samples_file = samples_file
